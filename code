@@ -1,7 +1,6 @@
 from processing import *
 def setup():
   size(720,500)
-  global img
   global BGRed
   global BGBlue
   global BGGreen
@@ -14,20 +13,10 @@ def setup():
   R = random(255)
   G = random(255)
   B = random(255)
-  
   background(BGRed,BGGreen,BGBlue)
+  img= loadImage("photo.png")
+  image(img,245,160,.width,height)
   
-  img=loadImage("photo.png")
-  image(img,0,60,img.width,img.height)
-  resizeImage()
-def resizeImage():
-  global img
-  op=img.width/img.height
-  npWidth= 600
-  npHeight= npWidth/op
-  print(npHeight)
-
-def draw():
   fill(255,0,0)
   rect(0,0,80,60) #this is the red color
   fill(0,0,255)
@@ -50,4 +39,121 @@ def draw():
   rect(640,0,79,60) #this is the triangle 
   triangle(655,50,680,10,710,50)
   
+  global color #Global allows this var to be able in all functions
+  color = "blue"
+  global shapes
+  shapes = "circle"
+def draw(): #We need to use the draw function for the program to be active rather than fixed
+
+  global color 
+  global shapes
+  fill(255,0,0)
+  rect(0,0,80,60) #this is the red color
+  fill(0,0,255)
+  rect(80,0,80,60) #this is the blue color
+  fill(0,255,0)
+  rect(160,0,80,60) #this is the green color
+  fill(255,255,0)
+  rect(240,0,80,60) #this is the yellow color
+  fill(R,G,B)
+  rect(320,0,80,60) #this is the random color
+  fill(BGRed,BGGreen,BGBlue)
+  rect(400,0,80,60) #this is the eraser color
+  fill(255,255,255)
+  rect(480,0,80,60) #this is the rectangle
+
+  fill(255,255,255)
+  rect(560,0,80,60) #this is the circle 
+
+  fill(255,255,255)
+  rect(640,0,79,60) #this is the triangle 
+  if mouseX < 80 and mouseY < 60:
+    color = "red" #red color
+  elif mouseX > 80 and mouseX < 160 and mouseY < 60:
+    color = "blue" #blue color
+  elif mouseX > 160 and mouseX < 240 and mouseY < 60:
+    color = "green" #green color
+  elif mouseX > 240 and mouseX < 320 and mouseY < 60:
+    color = "yellow" #yellow color
+  elif mouseX > 320 and mouseX < 400 and mouseY < 60:
+    color = "random" #eraser color
+  elif mouseX > 400 and mouseX < 480 and mouseY < 60:
+    color = "eraser" #eraser color
+  elif mouseX > 480 and mouseX < 560 and mouseY < 60:
+    shapes = "rectangle" #rectangle
+  elif mouseX > 560 and mouseX < 640 and mouseY < 60:
+    shapes = "circle" #circle color
+  elif mouseX > 640 and mouseY < 60:
+    shapes = "tri" #triangle color
+  
+  print(color)
+  print(shapes)
+  if mousePressed and mouseY > 63 and color == "eraser":
+    noStroke()
+    fill(BGRed,BGGreen,BGBlue)
+    ellipse(mouseX,mouseY,35,35)
+  if mousePressed and mouseY > 63 and shapes == "rectangle" and color =="red":
+    noStroke()
+    fill(255,0,0)
+    rect(mouseX,mouseY,15,15)
+  if mousePressed and mouseY > 63 and shapes == "rectangle" and color =="blue":
+    noStroke()
+    fill(0,0,255)
+    rect(mouseX,mouseY,15,15)
+  if mousePressed and mouseY > 63 and shapes == "rectangle" and color =="green":
+    noStroke()
+    fill(0,255,0)
+    rect(mouseX,mouseY,15,15)
+  if mousePressed and mouseY > 63 and shapes == "rectangle" and color =="yellow":
+    noStroke()
+    fill(255,255,0)
+    rect(mouseX,mouseY,15,15)
+  if mousePressed and mouseY > 63 and shapes == "rectangle" and color =="random":
+    noStroke()
+    fill(R,G,B)
+    rect(mouseX,mouseY,15,15)
+  if mousePressed and mouseY > 63 and shapes == "circle" and color == "red":
+    noStroke()
+    fill(255,0,0)
+    ellipse(mouseX,mouseY,15,15)
+  if mousePressed and mouseY > 63 and shapes == "circle" and color == "blue":
+    noStroke()
+    fill(0,0,255)
+    ellipse(mouseX,mouseY,15,15)
+  if mousePressed and mouseY > 63 and shapes == "circle" and color == "green":
+    noStroke()
+    fill(0,255,0)
+    ellipse(mouseX,mouseY,15,15)
+  if mousePressed and mouseY > 63 and shapes == "circle" and color == "yellow":
+    noStroke()
+    fill(255,255,0)
+    ellipse(mouseX,mouseY,15,15)
+  if mousePressed and mouseY > 63 and shapes == "circle" and color == "random":
+    noStroke()
+    fill(R,G,B)
+    ellipse(mouseX,mouseY,15,15)
+  if mousePressed and mouseY > 63 and shapes == "tri" and color == "red":
+    noStroke()
+    fill(255,0,0)
+    triangle(mouseX,mouseY,mouseX+10,mouseY-10,mouseX+20,mouseY)
+  if mousePressed and mouseY > 63 and shapes == "tri" and color == "blue":
+    noStroke()
+    fill(0,0,255)
+    triangle(mouseX,mouseY,mouseX+10,mouseY-10,mouseX+20,mouseY)
+  if mousePressed and mouseY > 63 and shapes == "tri" and color == "green":
+    noStroke()
+    fill(0,255,0)
+    triangle(mouseX,mouseY,mouseX+10,mouseY-10,mouseX+20,mouseY)
+  if mousePressed and mouseY > 63 and shapes == "tri" and color == "yellow":
+    noStroke()
+    fill(255,255,0)
+    triangle(mouseX,mouseY,mouseX+10,mouseY-10,mouseX+20,mouseY)
+  if mousePressed and mouseY > 63 and shapes == "tri" and color == "random":
+    noStroke()
+    fill(R,G,B)
+    triangle(mouseX,mouseY,mouseX+10,mouseY-10,mouseX+20,mouseY)
+    
+  rect(488,5,65,50) 
+  triangle(655,50,680,10,710,50)
+  ellipse(600,30,65,50) 
 run()
