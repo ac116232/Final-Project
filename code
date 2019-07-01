@@ -14,9 +14,6 @@ def setup():
   G = random(255)
   B = random(255)
   background(BGRed,BGGreen,BGBlue)
-  img= loadImage("photo.png")
-  image(img,245,160,.width,height)
-  
   fill(255,0,0)
   rect(0,0,80,60) #this is the red color
   fill(0,0,255)
