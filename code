@@ -1,0 +1,53 @@
+from processing import *
+def setup():
+  size(720,500)
+  global img
+  global BGRed
+  global BGBlue
+  global BGGreen
+  BGRed = random(255)
+  BGGreen = random(255)
+  BGBlue = random(255)
+  global R
+  global B
+  global G
+  R = random(255)
+  G = random(255)
+  B = random(255)
+  
+  background(BGRed,BGGreen,BGBlue)
+  
+  img=loadImage("photo.png")
+  image(img,0,60,img.width,img.height)
+  resizeImage()
+def resizeImage():
+  global img
+  op=img.width/img.height
+  npWidth= 600
+  npHeight= npWidth/op
+  print(npHeight)
+
+def draw():
+  fill(255,0,0)
+  rect(0,0,80,60) #this is the red color
+  fill(0,0,255)
+  rect(80,0,80,60) #this is the blue color
+  fill(0,255,0)
+  rect(160,0,80,60) #this is the green color
+  fill(255,255,0)
+  rect(240,0,80,60) #this is the yellow color
+  fill(R,G,B)
+  rect(320,0,80,60) #this is the random color
+  fill(BGRed,BGGreen,BGBlue)
+  rect(400,0,80,60) #this is the eraser color
+  fill(255,255,255)
+  rect(480,0,80,60) #this is the rectangle
+  rect(488,5,65,50)
+  fill(255,255,255)
+  rect(560,0,80,60) #this is the circle 
+  ellipse(600,30,65,50)
+  fill(255,255,255)
+  rect(640,0,79,60) #this is the triangle 
+  triangle(655,50,680,10,710,50)
+  
+run()
