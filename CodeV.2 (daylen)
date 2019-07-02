@@ -40,6 +40,7 @@ def setup():
   color = "blue"
   global shapes
   shapes = "circle"
+  global img
   #ADDED IMAGE LOADER CODE
   pp = raw_input("Please upload the image by clicking the gallery icon in the upper right corner, then enter the name of the image file here: ")
   img= loadImage(pp)
