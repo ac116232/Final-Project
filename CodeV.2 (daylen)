@@ -1,4 +1,3 @@
-from processing import *
 def setup():
   size(720,500)
   global BGRed
@@ -40,7 +39,7 @@ def setup():
   sticky = loadImage("emoji.png")
   stickerWidth=60
   stickerHeight=60
-    
+  pp = input('enter your name')
   global color #Global allows this var to be able in all functions
   #shape selector
   fill(0)
@@ -52,8 +51,7 @@ def setup():
   shapes = "circle"
   global img
   #ADDED IMAGE LOADER CODE
-  pp = raw_input("Please upload the image by clicking the gallery icon in the upper right corner, then enter the name of the image file here: ")
-  img= loadImage(pp)
+  img=loadImage(pp)
 
   if img.width > 720 or img.height > 500:
     resizeImage()
@@ -102,7 +100,7 @@ def draw(): #We need to use the draw function for the program to be active rathe
   elif mouseX > 560 and mouseX < 640 and mouseY < 60:
     shapes = "circle" #circle color
   elif mouseX > 640 and mouseY < 60:
-    shapes = "emoji" #emoji color
+    color = "emoji" #emoji color
   
   print(color)
   print(shapes)
@@ -150,9 +148,12 @@ def draw(): #We need to use the draw function for the program to be active rathe
     noStroke()
     fill(R,G,B)
     ellipse(mouseX,mouseY,15,15)
-  if mousePressed and mouseY > 63 and shapes == "emoji":
+  if mousePressed and mouseY > 63 and color == "emoji":
     fill(255,0,0)
     image(sticky,mouseX-27,mouseY-23,stickerWidth,stickerHeight)
   rect(488,5,65,50) 
-  ellipse(600,30,65,50) 
-run()
+  ellipse(600,30,65,50)
+ 
+def input(message=''):
+    from javax.swing import JOptionPane
+    return JOptionPane.showInputDialog(frame, message)
