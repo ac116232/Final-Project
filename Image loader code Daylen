@@ -1,0 +1,10 @@
+from processing import *
+
+def setup():
+  size (1000,1000)
+  pp = raw_input("Please upload the image by clicking the gallery icon in the upper right corner, then enter the name of the image file here: ")
+  print pp
+  img= loadImage (pp)
+  image(img,0,0,400,400)
+  loadPixels()
+run()
