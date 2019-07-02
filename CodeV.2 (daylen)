@@ -33,11 +33,20 @@ def setup():
   rect(560,0,80,60) #this is the circle 
   ellipse(600,30,65,50)
   fill(255,255,255)
-  rect(640,0,79,60) #this is the triangle 
-  triangle(655,50,680,10,710,50)
-  
+  rect(640,0,79,60) #this is the emoji
+  global sticky
+  global stickerWidth
+  global stickerHeight
+  sticky = loadImage("emoji.png")
+  stickerWidth=60
+  stickerHeight=60
     
-  global color #Global allows this var to be able in all functions 
+  global color #Global allows this var to be able in all functions
+  #shape selector
+  fill(0)
+  rect(488,5,65,50)
+  image(sticky,652,0,stickerWidth,stickerHeight) #this is the sticker
+  ellipse(600,30,65,50) 
   color = "red"
   global shapes
   shapes = "circle"
@@ -45,12 +54,11 @@ def setup():
   #ADDED IMAGE LOADER CODE
   pp = raw_input("Please upload the image by clicking the gallery icon in the upper right corner, then enter the name of the image file here: ")
   img= loadImage(pp)
-  loadPixels()
 
   if img.width > 720 or img.height > 500:
     resizeImage()
   else:
-    image(img,50,50,img.width,img.height)
+    image(img,50,100,img.width,img.height)
 
 def resizeImage():
   global img
@@ -59,7 +67,7 @@ def resizeImage():
   npHeight= npWidth/op
   img.width = npWidth
   img.height = npHeight
-  image(img,50,50,img.width,img.height-60)
+  image(img,50,100,img.width,img.height-60)
   
 def draw(): #We need to use the draw function for the program to be active rather than fixed
   global color 
@@ -94,7 +102,7 @@ def draw(): #We need to use the draw function for the program to be active rathe
   elif mouseX > 560 and mouseX < 640 and mouseY < 60:
     shapes = "circle" #circle color
   elif mouseX > 640 and mouseY < 60:
-    shapes = "tri" #triangle color
+    shapes = "emoji" #emoji color
   
   print(color)
   print(shapes)
@@ -142,28 +150,9 @@ def draw(): #We need to use the draw function for the program to be active rathe
     noStroke()
     fill(R,G,B)
     ellipse(mouseX,mouseY,15,15)
-  if mousePressed and mouseY > 63 and shapes == "tri" and color == "red":
-    noStroke()
+  if mousePressed and mouseY > 63 and shapes == "emoji":
     fill(255,0,0)
-    triangle(mouseX,mouseY,mouseX+10,mouseY-10,mouseX+20,mouseY)
-  if mousePressed and mouseY > 63 and shapes == "tri" and color == "blue":
-    noStroke()
-    fill(0,0,255)
-    triangle(mouseX,mouseY,mouseX+10,mouseY-10,mouseX+20,mouseY)
-  if mousePressed and mouseY > 63 and shapes == "tri" and color == "green":
-    noStroke()
-    fill(0,255,0)
-    triangle(mouseX,mouseY,mouseX+10,mouseY-10,mouseX+20,mouseY)
-  if mousePressed and mouseY > 63 and shapes == "tri" and color == "yellow":
-    noStroke()
-    fill(255,255,0)
-    triangle(mouseX,mouseY,mouseX+10,mouseY-10,mouseX+20,mouseY)
-  if mousePressed and mouseY > 63 and shapes == "tri" and color == "random":
-    noStroke()
-    fill(R,G,B)
-    triangle(mouseX,mouseY,mouseX+10,mouseY-10,mouseX+20,mouseY)
-    
+    image(sticky,mouseX-27,mouseY-23,stickerWidth,stickerHeight)
   rect(488,5,65,50) 
-  triangle(655,50,680,10,710,50)
   ellipse(600,30,65,50) 
 run()
