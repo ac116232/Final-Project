@@ -37,13 +37,8 @@ def setup():
   triangle(655,50,680,10,710,50)
   
     
-  global color #Global allows this var to be able in all functions
-  #shape selector
-  fill(0)
-  rect(488,5,65,50) 
-  triangle(655,50,680,10,710,50)
-  ellipse(600,30,65,50) 
-  color = "blue"
+  global color #Global allows this var to be able in all functions 
+  color = "red"
   global shapes
   shapes = "circle"
   global img
