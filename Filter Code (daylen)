@@ -1,0 +1,176 @@
+def setup():
+    size(400,400)
+    i1=loadImage("IMG_20190621_151622.jpg")
+    x=0
+    image(i1,0,0,400,400)
+    loadPixels()
+    print("Welcome to FilterEditorPro!")
+    print ("To use the Black And White filter, click B!")
+    print ("To use the Red Remover filter, click R!")
+    print ("To use the Stripes filter, click S!")
+    print ("To use the Flip Vertical filter, click V!")
+    print ("To use the Flip Horizontal filter, click H!")
+    print ("To use the Luminosity filter, click L!")
+    print ("To use the Lightness filter, click W!")
+    print ("To use the Average filter, click A!")
+    print ("To use the Obama filter, click O!")
+    print ("To use No filter, click N!")
+    
+    
+    
+    
+    if keyPressed:
+        if key== 'B' or key== 'b' :
+         BnW()
+    if key== 'R' or key== 'r':
+         redRemove()
+    if key== 'S' or key== 's':
+         stripes()
+    if key== 'V' or key== 'v':
+         flipVert()
+    if key== 'H' or key== 'h':
+         flipHorizon()
+
+def original():
+    background(0,0,0)
+    i1=loadImage("IMG_20190621_151622.jpg")
+    image(i1,0,0,400,400)
+    loadPixels()    
+        
+                
+def average():
+    background(0,0,0)
+    i1=loadImage("IMG_20190621_151622.jpg")
+    image(i1,0,0,400,400)
+    loadPixels()
+    for i in range(width*height):
+            pixels[i]= color ((red(pixels[i]) + green(pixels[i]) + blue(pixels[i])) / 3)
+
+
+    updatePixels()
+    
+def redRemove():
+    background(0,0,0)
+    i1=loadImage("IMG_20190621_151622.jpg")
+    image(i1,0,0,400,400)
+    loadPixels()
+    for i in range(width*height):
+            pixels[i]= color (red(pixels[i]*0),green(pixels[i]), blue(pixels[i]))
+
+
+    updatePixels()
+
+def stripes():
+    background(0,0,0)
+    i1=loadImage("IMG_20190621_151622.jpg")
+    image(i1,0,0,400,400)
+    loadPixels()
+    for i in range(3500,13500):
+        pixels[i]=color(red(pixels[i]),green(pixels[i])*0, blue(pixels[i])*0)
+    for i in range(20500,30500):
+        pixels[i]=color(red(pixels[i]),green(pixels[i])*0, blue(pixels[i])*0)
+    for i in range(40500,50500):
+        pixels[i]=color(red(pixels[i]),green(pixels[i])*0, blue(pixels[i])*0)
+    for i in range(60500,70500):
+        pixels[i]=color(red(pixels[i]),green(pixels[i])*0, blue(pixels[i])*0)
+    for i in range(80500,90500):
+        pixels[i]=color(red(pixels[i]),green(pixels[i])*0, blue(pixels[i])*0)
+    for i in range(100500,110500):
+        pixels[i]=color(red(pixels[i]),green(pixels[i])*0, blue(pixels[i])*0)
+    for i in range(120500,130500):
+        pixels[i]=color(red(pixels[i]),green(pixels[i])*0, blue(pixels[i])*0)
+    for i in range(140500,150500):
+        pixels[i]=color(red(pixels[i]),green(pixels[i])*0, blue(pixels[i])*0)
+        
+        updatePixels()
+        
+def flipVert():
+    background(0,0,0)
+    x=0
+    y=0
+    translate(x+400,y+0)
+    rotate(radians(90))
+    i1=loadImage("IMG_20190621_151622.jpg")
+    image(i1,x,y,400,400)
+    i1.loadPixels()
+    
+def flipHorizon():
+    background(0,0,0)
+    x=0
+    y=0
+    translate(x+400,y+400)
+    rotate(radians(180))
+    i1=loadImage("IMG_20190621_151622.jpg")
+    image(i1,x,y,400,400)
+    i1.loadPixels()
+
+def lumin():
+    background(0,0,0)
+    i1=loadImage("IMG_20190621_151622.jpg")
+    image(i1,0,0,400,400)
+    loadPixels()
+    for i in range(width*height):
+        pixels[i]=color(red(pixels[i])*0.21+green(pixels[i])*0.72+blue(pixels[i])*0.07)
+        
+        updatePixels()
+        
+def lightness():
+    background(0,0,0)
+    i1=loadImage("IMG_20190621_151622.jpg")
+    image(i1,0,0,400,400)
+    loadPixels()
+    for i in range(width*height):
+            pixels[i]= color (max(red(pixels[i]),green(pixels[i]), blue(pixels[i]))+ min(red(pixels[i]), green(pixels[i]), blue(pixels[i]))/2)
+
+
+    updatePixels()
+    
+def obama():
+    background(0,0,0)
+    i1=loadImage("IMG_20190621_151622.jpg")
+    image(i1,0,0,400,400)
+    loadPixels()
+    for i in range(width*height):
+     if (i % 400) < 190:
+       pixels[i]=color(red(pixels[i]),green(pixels[i])*0, blue(pixels[i])*0)
+       print("done")
+     else:
+        pixels[i]=color(red(pixels[i])*0,green(pixels[i])*0, blue(pixels[i]))
+        updatePixels()
+def BnW():
+    background(0,0,0)
+    i1=loadImage("IMG_20190621_151622.jpg")
+    image(i1,0,0,400,400)
+    loadPixels()
+    for i in range(width*height):
+     if red(pixels[i])>120 and green(pixels[i])>120 and blue(pixels[i])>120:
+        pixels[i]= color(255)
+     else:
+        pixels[i]=color(0)
+            
+
+
+    updatePixels()
+def draw():
+    if key== 'b' or key=='B' :
+         BnW()
+    if key== 'R' or key== 'r':
+         redRemove()
+    if key== 'S' or key== 's':
+         stripes()
+    if key== 'V' or key== 'v':
+         flipVert()
+    if key== 'H' or key== 'h':
+         flipHorizon()
+    if key== 'L' or key== 'l':
+         lumin()
+    if key=='W' or key=='w':
+         lightness()
+    if key=='O' or key=='o':
+         obama()
+    if key=='A' or key=='a':
+        average()
+    if key=='N' or key=='n':
+        original()
+         
+         
