@@ -75,14 +75,7 @@ def draw(): #We need to use the draw function for the program to be active rathe
   rect(320,0,80,60) #this is the random color
   fill(BGRed,BGGreen,BGBlue)
   rect(400,0,80,60) #this is the eraser color
-  fill(255,255,255)
-  rect(480,0,80,60) #this is the rectangle
-
-  fill(255,255,255)
-  rect(560,0,80,60) #this is the circle 
-
-  fill(255,255,255)
-  rect(640,0,79,60) #this is the triangle 
+ 
   if mouseX < 80 and mouseY < 60:
     color = "red" #red color
   elif mouseX > 80 and mouseX < 160 and mouseY < 60:
