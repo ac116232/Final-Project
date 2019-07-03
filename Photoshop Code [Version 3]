@@ -58,7 +58,6 @@ def draw():
   global sticky
   global stickerWidth
   global stickerHeight
-  strokeWeight(3)
   fill(255,0,0)
   rect(0,0,40,45) #this is the red color
   fill(0,0,255)
@@ -86,9 +85,8 @@ def draw():
   fill(55,179,93)
   rect(480,0,40,45) #this is the light green color
   fill(255)
-  #rect(520,0,40,45) #this is the color selector
-  rect(640,0,40,45)
-  image(sticky,647,7,stickerWidth,stickerHeight) #this is the sticker selector
+  rect(520,0,40,45)
+  image(sticky,527,7,stickerWidth,stickerHeight) #this is the sticker selector
   #rect(680,0,40,45) #save button
   #This code is used to select inkcolor and shapes to draw.
   if  mousePressed and mouseX < 40 and mouseY < 45:
@@ -117,20 +115,18 @@ def draw():
     inkcolor = "lightblue" #light blue color
   elif mousePressed and mouseX > 480 and mouseX < 520 and mouseY < 45:
     inkcolor = "lightgreen" #light green color
-  #elif mouseX > 520 and mouseX < 560 and mouseY < 45:
-    #inkcolor = "colorselect" #inkcolor section
+  elif mousePressed and mouseX > 520 and mouseX < 560 and mouseY < 45:
+    inkcolor = "emoji" #sticker select
   elif mousePressed and mouseX > 560 and mouseX < 600 and mouseY < 45:
     shapes = "rectangle" #rectangle select
-  elif mousePressed and mouseX > 600 and mouseX < 640 and mouseY < 45:
+  elif mousePressed and mouseX > 600 and mouseY < 60:
     shapes = "circle" #circle select
-  elif mousePressed and mouseX > 640 and mouseY < 60:
-    inkcolor = "emoji" #sticker select
-  
+
   #This code is used to define the drawing section.
   if mousePressed and mouseY > 47 and inkcolor == "eraser":
     noStroke()
     fill(BGRed,BGGreen,BGBlue)
-    ellipse(mouseX,mouseY,35,35)
+    ellipse(mouseX,mouseY,15,15)
   if mousePressed and mouseY > 47 and inkcolor == "emoji":
     fill(255,0,0)
     image(sticky,mouseX-27,mouseY-23,stickerWidth*1.2,stickerHeight*1.2)
@@ -163,7 +159,7 @@ def draw():
   if mousePressed and mouseY > 47 and shapes == "rectangle" and inkcolor =="white":
     noStroke()
     fill(255)
-    rect(mouseX,mouseY,15,15)
+    rect(mouseX,mouseY,25,25)
   if mousePressed and mouseY > 47 and shapes == "rectangle" and inkcolor =="purple":
     noStroke()
     fill(158,66,245)
@@ -184,11 +180,6 @@ def draw():
     noStroke()
     fill(55,179,93)
     rect(mouseX,mouseY,15,15)
-  #if mousePressed and mouseY > 47 and shapes == "rectangle" and inkcolor =="colorselect":
-    #noStroke()
-    #fill(158,66,245)
-    #rect(mouseX,mouseY,15,15)
-
   if mousePressed and mouseY > 47 and shapes == "circle" and inkcolor == "red":
     noStroke()
     fill(255,0,0)
@@ -216,7 +207,7 @@ def draw():
   if mousePressed and mouseY > 47 and shapes == "circle" and inkcolor =="white":
     noStroke()
     fill(255)
-    ellipse(mouseX,mouseY,15,15)
+    ellipse(mouseX,mouseY,25,25)
   if mousePressed and mouseY > 47 and shapes == "circle" and inkcolor =="purple":
     noStroke()
     fill(158,66,245)
@@ -237,10 +228,6 @@ def draw():
     noStroke()
     fill(55,179,93)
     ellipse(mouseX,mouseY,15,15)
-  #if mousePressed and mouseY > 47 and shapes == "circle" and inkcolor =="colorselect":
-    #noStroke()
-    #fill(158,66,245)
-    #ellipse(mouseX,mouseY,15,15)
   print(inkcolor)
   print(shapes)
   rect(565,7,30,30) #inner rect
