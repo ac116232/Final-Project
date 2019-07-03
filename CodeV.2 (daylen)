@@ -56,16 +56,16 @@ def setup():
   if img.width > 720 or img.height > 500:
     resizeImage()
   else:
-    image(img,50,100,img.width,img.height)
+    image(img,15,50,img.width,img.height)
 
 def resizeImage():
   global img
   op=img.width/img.height
-  npWidth= 500
+  npWidth= 300
   npHeight= npWidth/op
   img.width = npWidth
   img.height = npHeight
-  image(img,50,100,img.width,img.height-60)
+  image(img,100,100,img.width,img.height)
   
 def draw(): #We need to use the draw function for the program to be active rather than fixed
   global color 
