@@ -28,8 +28,9 @@ def setup():
   sticker = input('Please upload a sticker by clicking sketch,add file, find a image, open it, then enter the name of the image file here: ')
   sticky = loadImage(sticker)
   #ADDED SHAPE SELECTOR CODE
-  rect(565,7,30,30) #inner rect
-  ellipse(620,23,30,30) #inner circle
+  fill(255)
+  rect(560,0,40,45) #this is the rect selector
+  rect(600,0,40,45) #this is the ellipse selector
   #ADDED IMAGE LOADER CODE
   pp = input('enter file name')
   img=loadImage(pp)
@@ -37,16 +38,16 @@ def setup():
   if img.width > 720 or img.height > 500:
     resizeImage()
   else:
-    image(img,15,50,img.width,img.height)
+    image(img,75,75,img.width,img.height)
 
 def resizeImage():
   global img
   op=img.width/img.height
-  npWidth= 300
+  npWidth= 400
   npHeight= npWidth/op
-  img.width = npWidth
-  img.height = npHeight
-  image(img,100,100,img.width,img.height)
+  #img.width = npWidth
+  #img.height = npHeight
+  image(img,75,75,npWidth,npHeight-120)
   
 #We need to use the draw function for the program to be active rather than fixed
 def draw():
@@ -85,8 +86,6 @@ def draw():
   rect(480,0,40,45) #this is the light green color
   fill(255)
   #rect(520,0,40,45) #this is the color selector
-  rect(560,0,40,45) #this is the rect selector
-  rect(600,0,40,45) #this is the ellipse selector
   rect(640,0,40,45)
   image(sticky,647,7,stickerWidth,stickerHeight) #this is the sticker selector
   #rect(680,0,40,45) #save button
@@ -241,10 +240,10 @@ def draw():
     #noStroke()
     #fill(158,66,245)
     #ellipse(mouseX,mouseY,15,15)
-
   print(inkcolor)
   print(shapes)
-
+  rect(565,7,30,30) #inner rect
+  ellipse(620,23,30,30) #inner circle
 def input(message=''):
     from javax.swing import JOptionPane
     return JOptionPane.showInputDialog(frame, message)
