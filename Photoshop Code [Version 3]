@@ -91,39 +91,39 @@ def draw():
   image(sticky,647,7,stickerWidth,stickerHeight) #this is the sticker selector
   #rect(680,0,40,45) #save button
   #This code is used to select inkcolor and shapes to draw.
-  if mouseX < 40 and mouseY < 45:
+  if  mousePressed and mouseX < 40 and mouseY < 45:
     inkcolor = "red" #red color
-  elif mouseX > 40 and mouseX < 80 and mouseY < 45:
+  elif mousePressed and mouseX > 40 and mouseX < 80 and mouseY < 45:
     inkcolor = "blue" #blue color
-  elif mouseX > 80 and mouseX < 120 and mouseY < 45:
+  elif mousePressed and mouseX > 80 and mouseX < 120 and mouseY < 45:
     inkcolor = "green" #green color
-  elif mouseX > 120 and mouseX < 160 and mouseY < 45:
+  elif mousePressed and mouseX > 120 and mouseX < 160 and mouseY < 45:
     inkcolor = "yellow" #yellow color
-  elif mouseX > 160 and mouseX < 200 and mouseY < 45:
+  elif mousePressed and mouseX > 160 and mouseX < 200 and mouseY < 45:
     inkcolor = "random" #random color
-  elif mouseX > 200 and mouseX < 240 and mouseY < 45:
+  elif mousePressed and mouseX > 200 and mouseX < 240 and mouseY < 45:
     inkcolor = "black" #black color
-  elif mouseX > 240 and mouseX < 280 and mouseY < 45:
+  elif mousePressed and mouseX > 240 and mouseX < 280 and mouseY < 45:
     inkcolor = "white" #white color
-  elif mouseX > 280 and mouseX < 320 and mouseY < 45:
+  elif mousePressed and mouseX > 280 and mouseX < 320 and mouseY < 45:
     inkcolor = "eraser" #eraser color
-  elif mouseX > 320 and mouseX < 360 and mouseY < 45:
+  elif mousePressed and mouseX > 320 and mouseX < 360 and mouseY < 45:
     inkcolor = "purple" #purple color
-  elif mouseX > 360 and mouseX < 400 and mouseY < 45:
+  elif mousePressed and mouseX > 360 and mouseX < 400 and mouseY < 45:
     inkcolor = "orange" #orange color
-  elif mouseX > 400 and mouseX < 440 and mouseY < 45:
+  elif mousePressed and mouseX > 400 and mouseX < 440 and mouseY < 45:
     inkcolor = "pink" #pink color
-  elif mouseX > 440 and mouseX < 480 and mouseY < 45:
+  elif mousePressed and mouseX > 440 and mouseX < 480 and mouseY < 45:
     inkcolor = "lightblue" #light blue color
-  elif mouseX > 480 and mouseX < 520 and mouseY < 45:
+  elif mousePressed and mouseX > 480 and mouseX < 520 and mouseY < 45:
     inkcolor = "lightgreen" #light green color
   #elif mouseX > 520 and mouseX < 560 and mouseY < 45:
     #inkcolor = "colorselect" #inkcolor section
-  elif mouseX > 560 and mouseX < 600 and mouseY < 45:
+  elif mousePressed and mouseX > 560 and mouseX < 600 and mouseY < 45:
     shapes = "rectangle" #rectangle select
-  elif mouseX > 600 and mouseX < 640 and mouseY < 45:
+  elif mousePressed and mouseX > 600 and mouseX < 640 and mouseY < 45:
     shapes = "circle" #circle select
-  elif mouseX > 640 and mouseY < 60:
+  elif mousePressed and mouseX > 640 and mouseY < 60:
     inkcolor = "emoji" #sticker select
   
   #This code is used to define the drawing section.
