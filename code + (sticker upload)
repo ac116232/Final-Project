@@ -89,21 +89,21 @@ def draw(): #We need to use the draw function for the program to be active rathe
  
   if mouseX < 80 and mouseY < 60:
     color = "red" #red color
-  elif mouseX > 80 and mouseX < 160 and mouseY < 60:
+  elif mousePressed and mouseX > 80 and mouseX < 160 and mouseY < 60:
     color = "blue" #blue color
-  elif mouseX > 160 and mouseX < 240 and mouseY < 60:
+  elif mousePressed and mouseX > 160 and mouseX < 240 and mouseY < 60:
     color = "green" #green color
-  elif mouseX > 240 and mouseX < 320 and mouseY < 60:
+  elif mousePressed and mouseX > 240 and mouseX < 320 and mouseY < 60:
     color = "yellow" #yellow color
-  elif mouseX > 320 and mouseX < 400 and mouseY < 60:
+  elif mousePressed and mouseX > 320 and mouseX < 400 and mouseY < 60:
     color = "random" #eraser color
-  elif mouseX > 400 and mouseX < 480 and mouseY < 60:
+  elif mousePressed and mouseX > 400 and mouseX < 480 and mouseY < 60:
     color = "eraser" #eraser color
-  elif mouseX > 480 and mouseX < 560 and mouseY < 60:
+  elif mousePressed and mouseX > 480 and mouseX < 560 and mouseY < 60:
     shapes = "rectangle" #rectangle
-  elif mouseX > 560 and mouseX < 640 and mouseY < 60:
+  elif mousePressed and mouseX > 560 and mouseX < 640 and mouseY < 60:
     shapes = "circle" #circle color
-  elif mouseX > 640 and mouseY < 60:
+  elif mousePressed and mouseX > 640 and mouseY < 60:
     color = "emoji" #emoji color
   
   print(color)
