@@ -79,10 +79,10 @@ def draw():
   rect(360,0,40,45) #this is the orange color
   fill(255,36,175)
   rect(400,0,40,45) #this is the pink color
-  fill(139,226,252)
+  fill(78,144,237)
   rect(440,0,40,45) #this is the light blue color
-  fill(55,138,91)
-  rect(480,0,40,45) #this is the dark green color
+  fill(55,179,93)
+  rect(480,0,40,45) #this is the light green color
   fill(255)
   #rect(520,0,40,45) #this is the color selector
   rect(560,0,40,45) #this is the rect selector
@@ -116,7 +116,7 @@ def draw():
   elif mouseX > 440 and mouseX < 480 and mouseY < 45:
     inkcolor = "lightblue" #light blue color
   elif mouseX > 480 and mouseX < 520 and mouseY < 45:
-    inkcolor = "darkgreen" #dark green color
+    inkcolor = "lightgreen" #light green color
   #elif mouseX > 520 and mouseX < 560 and mouseY < 45:
     #inkcolor = "colorselect" #inkcolor section
   elif mouseX > 560 and mouseX < 600 and mouseY < 45:
@@ -178,11 +178,11 @@ def draw():
     rect(mouseX,mouseY,15,15)
   if mousePressed and mouseY > 47 and shapes == "rectangle" and inkcolor =="lightblue":
     noStroke()
-    fill(139,226,252)
+    fill(78,144,237)
     rect(mouseX,mouseY,15,15)
-  if mousePressed and mouseY > 47 and shapes == "rectangle" and inkcolor =="darkgreen":
+  if mousePressed and mouseY > 47 and shapes == "rectangle" and inkcolor =="lightgreen":
     noStroke()
-    fill(55,138,91)
+    fill(55,179,93)
     rect(mouseX,mouseY,15,15)
   #if mousePressed and mouseY > 47 and shapes == "rectangle" and inkcolor =="colorselect":
     #noStroke()
@@ -231,11 +231,11 @@ def draw():
     ellipse(mouseX,mouseY,15,15)
   if mousePressed and mouseY > 47 and shapes == "circle" and inkcolor =="lightblue":
     noStroke()
-    fill(139,226,252)
+    fill(78,144,237)
     ellipse(mouseX,mouseY,15,15)
-  if mousePressed and mouseY > 47 and shapes == "circle" and inkcolor =="darkgreen":
+  if mousePressed and mouseY > 47 and shapes == "circle" and inkcolor =="lightgreen":
     noStroke()
-    fill(55,138,91)
+    fill(55,179,93)
     ellipse(mouseX,mouseY,15,15)
   #if mousePressed and mouseY > 47 and shapes == "circle" and inkcolor =="colorselect":
     #noStroke()
