@@ -19,6 +19,7 @@ def setup():
   inkcolor = "red"
   shapes = "circle"
   global img
+  rect(0,50,720,450)
   #ADDED STICKER CODE
   global sticky
   global stickerWidth
