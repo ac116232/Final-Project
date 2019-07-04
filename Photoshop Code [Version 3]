@@ -26,7 +26,8 @@ def setup():
   global stickerHeight
   stickerWidth=30
   stickerHeight=30
-  sticker = input('Please upload a sticker by clicking sketch,add file, find a image, open it, then enter the name of the image file here: ')
+  Instructions = input('To get the best use out of this program, please upload images by clicking sketch,add file.(Type "OK" when completed.)')
+  sticker = input('Enter the name of the image file here. This will be used as your sticker: ')
   sticky = loadImage(sticker)
   #ADDED SHAPE SELECTOR CODE
   fill(255)
@@ -123,10 +124,15 @@ def draw():
     shapes = "circle" #circle select
 
   #This code is used to define the drawing section.
-  if mousePressed and mouseY > 47 and inkcolor == "eraser":
+  j=-2
+  if mousePressed and mouseY > 47 and shapes == "rectangle" and inkcolor == "eraser":
     noStroke()
     fill(BGRed,BGGreen,BGBlue)
-    ellipse(mouseX,mouseY,15,15)
+    rect(mouseX+j,mouseY+j,15,15)
+  if mousePressed and mouseY > 47 and shapes == "circle" and inkcolor == "eraser":
+    noStroke()
+    fill(BGRed,BGGreen,BGBlue)
+    ellipse(mouseX+j,mouseY+j,15,15)
   if mousePressed and mouseY > 47 and inkcolor == "emoji":
     fill(255,0,0)
     image(sticky,mouseX-27,mouseY-23,stickerWidth*1.2,stickerHeight*1.2)
@@ -135,99 +141,99 @@ def draw():
   if mousePressed and mouseY > 47 and shapes == "rectangle" and inkcolor =="red":
     noStroke()
     fill(255,0,0)
-    rect(mouseX,mouseY,15,15)
+    rect(mouseX+j,mouseY+j,15,15)
   if mousePressed and mouseY > 47 and shapes == "rectangle" and inkcolor =="blue":
     noStroke()
     fill(0,0,255)
-    rect(mouseX,mouseY,15,15)
+    rect(mouseX+j,mouseY+j,15,15)
   if mousePressed and mouseY > 47 and shapes == "rectangle" and inkcolor =="green":
     noStroke()
     fill(0,255,0)
-    rect(mouseX,mouseY,15,15)
+    rect(mouseX+j,mouseY+j,15,15)
   if mousePressed and mouseY > 47 and shapes == "rectangle" and inkcolor =="yellow":
     noStroke()
     fill(255,255,0)
-    rect(mouseX,mouseY,15,15)
+    rect(mouseX+j,mouseY+j,15,15)
   if mousePressed and mouseY > 47 and shapes == "rectangle" and inkcolor =="random":
     noStroke()
     fill(R,G,B)
-    rect(mouseX,mouseY,15,15)
+    rect(mouseX+j,mouseY+j,15,15)
   if mousePressed and mouseY > 47 and shapes == "rectangle" and inkcolor =="black":
     noStroke()
     fill(0)
-    rect(mouseX,mouseY,15,15)
+    rect(mouseX+j,mouseY+j,15,15)
   if mousePressed and mouseY > 47 and shapes == "rectangle" and inkcolor =="white":
     noStroke()
     fill(255)
-    rect(mouseX,mouseY,25,25)
+    rect(mouseX+j,mouseY+j,25,25)
   if mousePressed and mouseY > 47 and shapes == "rectangle" and inkcolor =="purple":
     noStroke()
     fill(158,66,245)
-    rect(mouseX,mouseY,15,15)
+    rect(mouseX+j,mouseY+j,15,15)
   if mousePressed and mouseY > 47 and shapes == "rectangle" and inkcolor =="orange":
     noStroke()
     fill(255,164,36)
-    rect(mouseX,mouseY,15,15)
+    rect(mouseX+j,mouseY+j,15,15)
   if mousePressed and mouseY > 47 and shapes == "rectangle" and inkcolor =="pink":
     noStroke()
     fill(255,36,175)
-    rect(mouseX,mouseY,15,15)
+    rect(mouseX+j,mouseY+j,15,15)
   if mousePressed and mouseY > 47 and shapes == "rectangle" and inkcolor =="lightblue":
     noStroke()
     fill(78,144,237)
-    rect(mouseX,mouseY,15,15)
+    rect(mouseX+j,mouseY+j,15,15)
   if mousePressed and mouseY > 47 and shapes == "rectangle" and inkcolor =="lightgreen":
     noStroke()
     fill(55,179,93)
-    rect(mouseX,mouseY,15,15)
+    rect(mouseX+j,mouseY+j,15,15)
   if mousePressed and mouseY > 47 and shapes == "circle" and inkcolor == "red":
     noStroke()
     fill(255,0,0)
-    ellipse(mouseX,mouseY,15,15)
+    ellipse(mouseX+j,mouseY+j,15,15)
   if mousePressed and mouseY > 47 and shapes == "circle" and inkcolor == "blue":
     noStroke()
     fill(0,0,255)
-    ellipse(mouseX,mouseY,15,15)
+    ellipse(mouseX+j,mouseY+j,15,15)
   if mousePressed and mouseY > 47 and shapes == "circle" and inkcolor == "green":
     noStroke()
     fill(0,255,0)
-    ellipse(mouseX,mouseY,15,15)
+    ellipse(mouseX+j,mouseY+j,15,15)
   if mousePressed and mouseY > 47 and shapes == "circle" and inkcolor == "yellow":
     noStroke()
     fill(255,255,0)
-    ellipse(mouseX,mouseY,15,15)
+    ellipse(mouseX+j,mouseY+j,15,15)
   if mousePressed and mouseY > 47 and shapes == "circle" and inkcolor == "random":
     noStroke()
     fill(R,G,B)
-    ellipse(mouseX,mouseY,15,15)
+    ellipse(mouseX+j,mouseY+j,15,15)
   if mousePressed and mouseY > 47 and shapes == "circle" and inkcolor =="black":
     noStroke()
     fill(0)
-    ellipse(mouseX,mouseY,15,15)
+    ellipse(mouseX+j,mouseY+j,15,15)
   if mousePressed and mouseY > 47 and shapes == "circle" and inkcolor =="white":
     noStroke()
     fill(255)
-    ellipse(mouseX,mouseY,25,25)
+    ellipse(mouseX+j,mouseY+j,25,25)
   if mousePressed and mouseY > 47 and shapes == "circle" and inkcolor =="purple":
     noStroke()
     fill(158,66,245)
-    ellipse(mouseX,mouseY,15,15)
+    ellipse(mouseX+j,mouseY+j,15,15)
   if mousePressed and mouseY > 47 and shapes == "circle" and inkcolor =="orange":
     noStroke()
     fill(255,164,36)
-    ellipse(mouseX,mouseY,15,15)
+    ellipse(mouseX+j,mouseY+j,15,15)
   if mousePressed and mouseY > 47 and shapes == "circle" and inkcolor =="pink":
     noStroke()
     fill(255,36,175)
-    ellipse(mouseX,mouseY,15,15)
+    ellipse(mouseX+j,mouseY+j,15,15)
   if mousePressed and mouseY > 47 and shapes == "circle" and inkcolor =="lightblue":
     noStroke()
     fill(78,144,237)
-    ellipse(mouseX,mouseY,15,15)
+    ellipse(mouseX+j,mouseY+j,15,15)
   if mousePressed and mouseY > 47 and shapes == "circle" and inkcolor =="lightgreen":
     noStroke()
     fill(55,179,93)
-    ellipse(mouseX,mouseY,15,15)
+    ellipse(mouseX+j,mouseY+j,15,15)
   print(inkcolor)
   print(shapes)
   rect(565,7,30,30) #inner rect
