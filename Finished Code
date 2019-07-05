@@ -18,10 +18,12 @@ def setup():
   global inkcolor
   global shapes
   global img
+  global destination
+  global pp
   inkcolor = "red"
   shapes = "circle"
   workSpace()
-  Instructions = input('To get the best use out of this program, please upload images by clicking sketch, add file (Type "OK" when completed.)')
+  Instructions = input('To get the best use out of this program, please upload images by clicking sketch, add file. (Click "OK" when completed!)')
   stickerCode()
   imageLoad()
   shapeSelect()
@@ -30,6 +32,7 @@ def workSpace():
     global BGRed
     global BGBlue
     global BGGreen
+    global pp
     background(BGRed,BGGreen,BGBlue)
     rect(0,50,720,450)
     rect(680,0,40,45)
@@ -39,6 +42,7 @@ def stickerCode():
     global sticky
     global stickerWidth
     global stickerHeight
+    global pp
     stickerWidth=30
     stickerHeight=30
     sticker = input('Enter the name of the image file here. This will be used as your sticker: ')
@@ -50,13 +54,14 @@ def shapeSelect():
     rect(600,0,40,45) #this is the ellipse selector
     
 def imageLoad():
+    global pp
+    global destination
     global img
     pp = input('enter file name')
     img=loadImage(pp)
+    destination = createImage(img.width, img.height, RGB)
     if img.width > 720 or img.height > 500:
         resizeImage()
-    else:
-        image(img,75,75,img.width,img.height)
         
 def resizeImage():
   global img
@@ -74,6 +79,7 @@ def draw():
   global sticky
   global stickerWidth
   global stickerHeight
+  global destination
   topBoxes()
   selectInk()
   drawInk()
@@ -111,6 +117,16 @@ def topBoxes():
   fill(255)
   rect(520,0,40,45)
   image(sticky,527,7,stickerWidth,stickerHeight) #this is the sticker selector
+  fill(207)
+  rect(0,60,15,60)
+  fill(200,50,50)
+  rect(0,120,15,60)
+  fill(50,200,50)
+  rect(0,180,15,60)
+  fill(50,50,200)
+  rect(0,240,15,60)
+  fill(255)
+  rect(0,300,15,60)
   fill(0)
   ellipse(661,23,35,35)
   ellipse(701,23,15,15)
@@ -119,6 +135,8 @@ def selectInk():
   global inkcolor
   global shapes
   global gl
+  global destination
+
   if  mousePressed and mouseX < 40 and mouseY < 45:
     inkcolor = "red" #red color
   elif mousePressed and mouseX > 40 and mouseX < 80 and mouseY < 45:
@@ -158,6 +176,8 @@ def selectInk():
 def drawInk():
   j=-2
   global gl
+  global destination
+
   if mousePressed and mouseY > 47 and shapes == "rectang" and inkcolor == "eraser":
     noStroke()
     fill(BGRed,BGGreen,BGBlue)
@@ -265,6 +285,16 @@ def drawInk():
     noStroke()
     fill(55,179,93)
     ellipse(mouseX+j,mouseY+j,15+gl,15+gl)
+  if mousePressed and mouseX < 20 and mouseY < 100:
+   BnW()
+  if mousePressed and mouseX <20 and mouseY> 120 and mouseY<180:
+   heat()
+  if mousePressed and mouseX<20 and mouseY> 180 and mouseY<240:
+   nature()
+  if mousePressed and mouseX<20 and mouseY> 240 and mouseY<300:
+   ocean()
+  if mousePressed and mouseX<20 and mouseY> 300 and mouseY<360:
+   original()
   print(inkcolor)
   print(shapes)
   fill(160,160,160)
