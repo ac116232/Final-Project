@@ -26,7 +26,6 @@ def setup():
   Instructions = input('To get the best use out of this program, please upload images by clicking sketch, add file. (Click "OK" when completed!)')
   stickerCode()
   imageLoad()
-  shapeSelect()
 
 def workSpace():
     global BGRed
@@ -62,6 +61,8 @@ def imageLoad():
     destination = createImage(img.width, img.height, RGB)
     if img.width > 720 or img.height > 500:
         resizeImage()
+    else:
+        image(img,75,75,img.width,img.height)
         
 def resizeImage():
   global img
@@ -80,6 +81,7 @@ def draw():
   global stickerWidth
   global stickerHeight
   global destination
+  shapeSelect()
   topBoxes()
   selectInk()
   drawInk()
